@@ -490,15 +490,43 @@ button:focus {
     height: auto;
   }
 
-  .image-collage img {
-    position: static;
-    display: inline-block;
-    margin: 5px;
-    transform: none !important;
-    opacity: 1 !important;
-    width: 80px;
-    height: auto;
+  @media (max-width: 768px) {
+  .image-collage {
+    height: auto; /* Altura flexible */
+    margin-bottom: 105px; /* agrega espacio extra debajo para cuando la imagen se agranda */
   }
+
+  .image-collage img {
+    position: relative !important;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, transform 0.3s ease;
+    width: 90% !important;
+    height: auto !important;
+    object-fit: cover;
+    margin: 10px auto !important;
+    display: block;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .image-collage img.show {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+
+  /* Al tocar (agrandar la imagen activa) */
+  .image-collage img.active {
+    transform: scale(1.1) !important;
+    z-index: 20 !important;
+  }
+}
+.image-collage img.img1 { top: 0; left: 10px; z-index: 1; }
+.image-collage img.img2 { top: 30px; left: 10px; z-index: 2; }
+.image-collage img.img3 { top: 60px; left: 10px; z-index: 3; }
+.image-collage img.img4 { top: 90px; left: 10px; z-index: 4; }
+.image-collage img.img5 { top: 120px; left: 10px; z-index: 5; }
+
 
   .device-showcase {
     justify-content: center;
