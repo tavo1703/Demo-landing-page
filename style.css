@@ -1,0 +1,513 @@
+/* Reset general */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #1f1f29;
+  overflow-x: hidden;
+}
+
+/* Fuentes */
+
+h1, h2, h3 {
+  font-family: 'Fredoka', sans-serif;
+}
+
+p, a, span {
+  font-family: 'Poppins', sans-serif;
+}
+
+.justificado {
+  text-align: justify;
+}
+
+/* Layout principal */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* -----------------------------------
+   COLUMNA IZQUIERDA
+----------------------------------- */
+.left-column {
+  flex: 1;
+  position: relative;
+  background: url('img/foto14.jpeg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.left-column .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.left-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.left-content header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.left-content .tagline {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #eee;
+}
+
+.about h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.about p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Formulario */
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-section input {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-section button {
+  padding: 0.8rem;
+  background-color: #ff5722;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-section button:hover {
+  background-color: #e64a19;
+}
+
+.form-message {
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+button[type="submit"] {
+  background-color: #ff5a5f;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.05);
+}
+
+button[type="submit"]:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Redes sociales */
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social img {
+  width: 40px;
+  height: 40px;
+}
+
+.social a:hover {
+  background-color: #F7F7F7; /* Gris Claro */
+  transform: scale(1.6);
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0 1rem 0; /* Aumentamos el margen superior */
+  justify-content: center; /* Centrado opcional */
+}
+
+
+footer {
+  width: 100%;
+  background-color: #1f1f29;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+
+footer p {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+/* -----------------------------------
+   COLUMNA DERECHA
+----------------------------------- */
+.right-column {
+  flex: 1;
+  padding: 2rem;
+  background-color: #1f1f29;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+/* Texto sobre collage */
+.text-above-collage, .text-below-collage {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.text-above-collage h2 {
+  font-size: 1.8rem;
+  color: #FF5D8F;
+  margin-bottom: 0.3rem;
+}
+
+.text-above-collage p {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.text-below-collage p {
+  font-style: italic;
+  color: #3A86FF;
+}
+
+/* Collage de imágenes */
+.image-collage {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin-top: 20px;
+  perspective: 1000px;
+}
+
+
+.image-collage img {
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(100px) rotate(5deg) scale(0.9);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  cursor: pointer;
+}
+
+/* Posiciones personalizadas (ya definidas pero ahora con clase de animación) */
+.image-collage img.img1 { top: 0; left: 10px; z-index: 1; }
+.image-collage img.img2 { top: 30px; left: 100px; z-index: 2; }
+.image-collage img.img3 { top: 60px; left: 180px; z-index: 3; }
+.image-collage img.img4 { top: 90px; left: 240px; z-index: 4; }
+.image-collage img.img5 { top: 20px; left: 390px; z-index: 5; }
+
+/* Estado activo: se aplica vía JS */
+.image-collage img.show {
+  opacity: 1;
+  transform: translateX(0) rotate(0deg) scale(1);
+}
+
+/* Zoom on hover */
+.image-collage img:hover {
+  transform: scale(1.1) rotate(1deg);
+  z-index: 10;
+}
+
+.img1 {
+  top: 0;
+  left: 5%;
+  width: 230px;
+  height: 290px;
+  transform: rotate(-8deg);
+}
+.img2 {
+  top: 30px;
+  left: 30%;
+  width: 230px;
+  height: 290px;
+  transform: rotate(10deg);
+}
+.img3 {
+  top: 60px;
+  left: 55%;
+  width: 230px;
+  height: 290px;
+  transform: rotate(-12deg);
+}
+.img4 {
+  top: 200px;
+  left: 70%;
+  width: 230px;
+  height: 290px;
+  transform: rotate(8deg);
+}
+.img5 {
+  top: 280px;
+  left: 40%;
+  width: 230px;
+  height: 290px;
+  transform: rotate(-12deg);
+}
+
+/* Título sobre móviles */
+.devices-title {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #C77DFF;
+  margin-top: 2rem;
+}
+
+/* Dispositivos */
+.device-showcase {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Simulación de móvil */
+.device {
+  background: #000;
+  border-radius: 30px;
+  border: 3px solid #333;
+  overflow: hidden;
+  position: relative;
+  width: 240px;
+  height: 430px;
+  display: flex;
+  flex-direction: column;
+}
+
+.device-tilted {
+  transform: rotate(-10deg);
+}
+
+.device-header {
+  position: absolute;
+  top: 5px;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: white;
+  font-size: 0.75rem;
+  align-items: center;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.device .camera {
+  width: 8px;
+  height: 8px;
+  background: #555;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+.status-bar {
+  display: flex;
+  gap: 5px;
+}
+
+/* Pantalla del móvil */
+.screen.full-bg {
+  flex: 1;
+  position: relative;
+}
+
+.screen.full-bg img {
+  width: 100%;
+  height: calc(100% - 22px); /* Resta el alto de la barra superior */
+  object-fit: cover;
+  display: block;
+  margin-top: 22px;/* Empieza justo debajo de la barra */
+}
+
+.screen-content {
+  position: absolute;
+  bottom: 60px;
+  left: 10px;
+  right: 10px;
+  text-align: center;
+  color: black;
+  z-index: 2;
+}
+
+.screen-content h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.screen-content button {
+  background: rgba(232, 30, 37, 0.8);
+  border: none;
+  border-radius: 10px;
+  padding: 0.4rem 1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.screen-content button:hover {
+  background: blue;
+}
+
+/* Animación de entrada para los dispositivos */
+.device {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUp 0.8s ease forwards;
+}
+
+.device:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.device:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efecto al pasar el mouse */
+.device:hover {
+  transform: translateY(-10px) rotate(2deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 12px 24px rgba(154, 81, 76, 0.9);
+}
+
+input:focus,
+button:focus {
+  outline: 2px solid #ff5722;
+  outline-offset: 2px;
+}
+
+.device-text {
+  position: absolute;
+  top: 75px; /* ajustá este valor para que quede justo debajo de la barra superior */
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: #fe7773;
+  font-weight: 500;
+  z-index: 2;
+  pointer-events: none; /* evita interferencia con clics */
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6); /* mejora legibilidad sobre imagen */
+}
+
+
+/* App Store/Google Play */
+
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.store-buttons img {
+  height: 50px;
+  max-width: 160px;
+  transition: transform 0.3s ease;
+}
+
+.store-buttons img:hover {
+  transform: scale(1.05);
+}
+
+
+
+/* ------------
+   RESPONSIVE
+-------------- */
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .left-column,
+  .right-column {
+    flex: unset;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .image-collage {
+    height: auto;
+  }
+
+  .image-collage img {
+    position: static;
+    display: inline-block;
+    margin: 5px;
+    transform: none !important;
+    opacity: 1 !important;
+    width: 80px;
+    height: auto;
+  }
+
+  .device-showcase {
+    justify-content: center;
+  }
+
+  .device {
+    transform: none;
+    margin-bottom: 1rem;
+  }
+}
+
+
